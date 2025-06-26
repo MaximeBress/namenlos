@@ -1,0 +1,36 @@
+{
+  "type": "SharedSlice",
+  "id": "navigation_menu",
+  "name": "MenuItem",
+  "variations": [
+    {
+      "id": "with_dropdowns",
+      "name": "Top Menu Item",
+      "description": "Navigation menu where items may be standard links or contain dropdown/mega menu content.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

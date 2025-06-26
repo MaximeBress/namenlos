@@ -1,0 +1,31 @@
+{
+  "type": "SharedSlice",
+  "id": "carousel_gallery",
+  "name": "CarouselGallery",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "A standard image carousel/gallery, each slide may contain a single image. Navigation arrows enable scrolling to previous or next images.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "slides": {
+          "type": "Group",
+          "config": {
+            "label": "Slides",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

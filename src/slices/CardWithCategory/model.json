@@ -1,0 +1,54 @@
+{
+  "type": "SharedSlice",
+  "id": "card_with_category",
+  "name": "CardWithCategory",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Card",
+      "description": "Standard card showing image, category, and title.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "main_image": {
+          "type": "Image",
+          "config": {
+            "label": "Main Image"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading3",
+            "label": "Title"
+          }
+        },
+        "category": {
+          "type": "Group",
+          "config": {
+            "label": "Categorie",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Select",
+                "config": {
+                  "label": "label",
+                  "placeholder": "",
+                  "options": [
+                    "Architecture",
+                    "Programmation",
+                    "Paysage",
+                    "AMO"
+                  ],
+                  "default_value": "Architecture"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

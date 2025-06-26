@@ -1,0 +1,23 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "with_dropdowns",
+		"primary": {
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "carefully",
+				"type": "Text"
+			},
+			"link": {
+				"key": "4046f3a0-2e05-4165-8fe6-f523824f90b6",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "various"
+				}
+			}
+		},
+		"items": []
+	}
+]

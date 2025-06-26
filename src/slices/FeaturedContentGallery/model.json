@@ -1,0 +1,60 @@
+{
+  "type": "SharedSlice",
+  "id": "featured_content_gallery",
+  "name": "FeaturedContentGallery",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Displays introductory text content left-aligned with a grid of three images on the right.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2",
+            "label": "Title"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Call to Action Link",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        },
+        "gallery_images": {
+          "type": "Group",
+          "config": {
+            "label": "Gallery Images",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
