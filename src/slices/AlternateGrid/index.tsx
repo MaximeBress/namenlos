@@ -14,26 +14,20 @@ const AlternateGrid: FC<AlternateGridProps> = ({ slice }) => {
       className="es-bounded es-alternate-grid"
     >
       <div
-        className={`
-					es-alternate-grid__content
-					${
-            isFilled.image(slice.primary.image)
-              ? "es-alternate-grid__content--with-image"
-              : ""
-          }
-        `}
+        className={`es-alternate-grid__content ${
+          isFilled.image(slice.primary.image)
+            ? "es-alternate-grid__content--with-image"
+            : ""
+        } `}
       >
         {isFilled.image(slice.primary.image) && (
           <PrismicNextImage
             field={slice.primary.image}
-            className={`
-              				es-alternate-grid__image
-							${
-                slice.variation === "imageRight"
-                  ? "es-alternate-grid__image--right"
-                  : "es-alternate-grid__image--left"
-              }
-            			`}
+            className={`es-alternate-grid__image ${
+              slice.variation === "imageRight"
+                ? "es-alternate-grid__image--right"
+                : "es-alternate-grid__image--left"
+            } `}
           />
         )}
         <div className="es-alternate-grid__primary-content">

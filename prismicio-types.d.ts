@@ -28,8 +28,7 @@ type PickContentRelationshipFieldData<
       TSubRelationship["customtypes"],
       TLang
     >;
-  } & // Group
-  {
+  } & { // Group
     [TGroup in Extract<
       TRelationship["fields"][number],
       | prismic.CustomTypeModelFetchGroupLevel1
@@ -41,8 +40,7 @@ type PickContentRelationshipFieldData<
           PickContentRelationshipFieldData<TGroup, TGroupData, TLang>
         >
       : never;
-  } & // Other fields
-  {
+  } & { // Other fields
     [TFieldKey in Extract<
       TRelationship["fields"][number],
       string
@@ -69,151 +67,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type AgencyDocumentDataSlicesSlice =
-  | TexteSlice
-  | CarouselGallerySlice
-  | FeaturedContentGallerySlice
-  | HeroSlice
-  | CardWithCategorySlice
-  | CallToActionSlice
-  | AlternateGridSlice;
-
-/**
- * Content for Agence documents
- */
-interface AgencyDocumentData {
-  /**
-   * Slice Zone field in *Agence*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: agency.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/slices
-   */
-  slices: prismic.SliceZone<AgencyDocumentDataSlicesSlice> /**
-   * Meta Title field in *Agence*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: agency.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Agence*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: agency.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Agence*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: agency.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Agence document from Prismic
- *
- * - **API ID**: `agency`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AgencyDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<AgencyDocumentData>,
-    "agency",
-    Lang
-  >;
-
-type HomepageDocumentDataSlicesSlice =
-  | CallToActionSlice
-  | AlternateGridSlice
-  | CarouselGallerySlice
-  | CardWithCategorySlice
-  | FeaturedContentGallerySlice
-  | TexteSlice
-  | HeroSlice;
-
-/**
- * Content for Accueil documents
- */
-interface HomepageDocumentData {
-  /**
-   * Slice Zone field in *Accueil*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/slices
-   */
-  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
-   * Meta Title field in *Accueil*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: homepage.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Accueil*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: homepage.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Accueil*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Accueil document from Prismic
- *
- * - **API ID**: `homepage`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type HomepageDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<HomepageDocumentData>,
-    "homepage",
-    Lang
-  >;
-
-type LayoutDocumentDataSlicesSlice = NavigationMenuSlice;
+export type LayoutDocumentDataSlicesSlice = NavigationMenuSlice;
 
 /**
  * Content for Layout documents
@@ -247,92 +101,85 @@ export type LayoutDocument<Lang extends string = string> =
     Lang
   >;
 
-type ProjectsDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice =
+  | HeroSlice
+  | AlternateGridSlice
+  | CallToActionSlice
+  | CarouselGallerySlice
+  | TexteSlice
+  | FeaturedContentGallerySlice
+  | NavigationMenuSlice
+  | CardWithCategorySlice;
 
 /**
- * Content for Projets documents
+ * Content for Page documents
  */
-interface ProjectsDocumentData {
+interface PageDocumentData {
   /**
-   * Couverture field in *Projets*
+   * Couverture field in *Page*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.cover
+   * - **API ID Path**: page.cover
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   cover: prismic.ImageField<never>;
 
   /**
-   * Titre field in *Projets*
+   * Titre field in *Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.title
+   * - **API ID Path**: page.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
   /**
-   * Slice Zone field in *Projets*
+   * Slice Zone field in *Page*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.slices[]
+   * - **API ID Path**: page.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ProjectsDocumentDataSlicesSlice> /**
-   * Meta Title field in *Projets*
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: projects.meta_title
+   * - **API ID Path**: page.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
    */;
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Projets*
+   * Meta Description field in *Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: projects.meta_description
+   * - **API ID Path**: page.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Projets*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  meta_image: prismic.ImageField<never>;
 }
 
 /**
- * Projets document from Prismic
+ * Page document from Prismic
  *
- * - **API ID**: `projects`
- * - **Repeatable**: `false`
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ProjectsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<ProjectsDocumentData>,
-    "projects",
-    Lang
-  >;
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ProjetDocumentDataSlicesSlice =
   | TexteSlice
@@ -412,12 +259,7 @@ interface ProjetDocumentData {
 export type ProjetDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<ProjetDocumentData>, "projet", Lang>;
 
-export type AllDocumentTypes =
-  | AgencyDocument
-  | HomepageDocument
-  | LayoutDocument
-  | ProjectsDocument
-  | ProjetDocument;
+export type AllDocumentTypes = LayoutDocument | PageDocument | ProjetDocument;
 
 /**
  * Item in *AlternateGrid → Image Right → Primary → items*
@@ -1254,18 +1096,12 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      AgencyDocument,
-      AgencyDocumentData,
-      AgencyDocumentDataSlicesSlice,
-      HomepageDocument,
-      HomepageDocumentData,
-      HomepageDocumentDataSlicesSlice,
       LayoutDocument,
       LayoutDocumentData,
       LayoutDocumentDataSlicesSlice,
-      ProjectsDocument,
-      ProjectsDocumentData,
-      ProjectsDocumentDataSlicesSlice,
+      PageDocument,
+      PageDocumentData,
+      PageDocumentDataSlicesSlice,
       ProjetDocument,
       ProjetDocumentData,
       ProjetDocumentDataSlicesSlice,

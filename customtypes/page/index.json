@@ -1,11 +1,17 @@
 {
   "format": "page",
-  "id": "projects",
-  "label": "Projets",
-  "repeatable": false,
+  "id": "page",
+  "label": "Page",
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
       "cover": {
         "type": "Image",
         "config": {
@@ -25,7 +31,32 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "alternate_grid": {
+              "type": "SharedSlice"
+            },
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "carousel_gallery": {
+              "type": "SharedSlice"
+            },
+            "texte": {
+              "type": "SharedSlice"
+            },
+            "featured_content_gallery": {
+              "type": "SharedSlice"
+            },
+            "navigation_menu": {
+              "type": "SharedSlice"
+            },
+            "card_with_category": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
@@ -43,17 +74,6 @@
           "placeholder": "A brief summary of the page"
         },
         "type": "Text"
-      },
-      "meta_image": {
-        "config": {
-          "constraint": {
-            "height": 1260,
-            "width": 2400
-          },
-          "label": "Meta Image",
-          "thumbnails": []
-        },
-        "type": "Image"
       }
     }
   }

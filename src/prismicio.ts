@@ -1,6 +1,6 @@
 import {
-  createClient as baseCreateClient,
   type ClientConfig,
+  createClient as baseCreateClient,
   type Route,
 } from "@prismicio/client";
 import { enableAutoPreviews } from "@prismicio/next";
@@ -19,10 +19,21 @@ export const repositoryName =
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
 const routes: Route[] = [
-  // Examples:
-  { type: "homepage", path: "/" },
-  { type: "agency", path: "/agence" },
-  { type: "projects", path: "/projets" },
+  {
+    type: "page",
+    uid: "homepage",
+    path: "/",
+  },
+  {
+    type: "page",
+    uid: "agency",
+    path: "/agence",
+  },
+  {
+    type: "page",
+    uid: "projects",
+    path: "/projets",
+  },
   { type: "projet", path: "/projets/:uid" },
 ];
 

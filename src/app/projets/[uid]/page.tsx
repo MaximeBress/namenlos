@@ -8,31 +8,31 @@ import { components } from "@/slices";
 type Params = { uid: string };
 
 export default async function Page({ params }: { params: Promise<Params> }) {
-    const { uid } = await params;
-    const client = createClient();
-    const page = await client.getByUID("projet", uid).catch(() => notFound());
+  const { uid } = await params;
+  const client = createClient();
+  const page = await client.getByUID("projet", uid).catch(() => notFound());
 
-    return <SliceZone slices={page.data.slices} components={components} />;
+  return <SliceZone slices={page.data.slices} components={components} />;
 }
 
 export async function generateMetadata({
-    params,
+  params,
 }: {
-    params: Promise<Params>;
+  params: Promise<Params>;
 }): Promise<Metadata> {
-    const { uid } = await params;
-    const client = createClient();
-    const page = await client.getByUID("projet", uid).catch(() => notFound());
+  const { uid } = await params;
+  const client = createClient();
+  const page = await client.getByUID("projet", uid).catch(() => notFound());
 
-    return {
-        title: page.data.meta_title,
-        description: page.data.meta_description,
-    };
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
 }
 
 export async function generateStaticParams() {
-    const client = createClient();
-    const pages = await client.getAllByType("projet");
+  const client = createClient();
+  const pages = await client.getAllByType("projet");
 
-    return pages.map((page) => ({ uid: page.uid }));
+  return pages.map((page) => ({ uid: page.uid }));
 }

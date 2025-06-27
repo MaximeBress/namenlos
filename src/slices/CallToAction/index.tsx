@@ -18,6 +18,7 @@ const CallToAction: FC<CallToActionProps> = ({ slice }) => {
         {isFilled.image(slice.primary.image) && (
           <PrismicNextImage
             className="es-call-to-action__image"
+            alt=""
             field={slice.primary.image}
           />
         )}
