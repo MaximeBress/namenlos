@@ -71,6 +71,14 @@ export const MobileMenu = ({ items }: MobileMenuProps) => {
         <div
           className="absolute inset-0 bg-black opacity-50"
           onClick={() => setIsOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === "Escape" || e.key === "Enter") {
+              setIsOpen(false);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Close menu"
         />
 
         <div

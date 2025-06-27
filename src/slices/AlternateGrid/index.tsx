@@ -22,6 +22,7 @@ const AlternateGrid: FC<AlternateGridProps> = ({ slice }) => {
       >
         {isFilled.image(slice.primary.image) && (
           <PrismicNextImage
+            alt=""
             field={slice.primary.image}
             className={`es-alternate-grid__image ${
               slice.variation === "imageRight"

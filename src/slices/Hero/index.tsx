@@ -13,14 +13,11 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       className="es-bounded es-fullpage-hero"
     >
       <div
-        className={`
-            es-fullpage-hero__content
-            ${
-              slice.variation === "imageRight"
-                ? "es-fullpage-hero__image--right"
-                : "es-fullpage-hero__image--left"
-            }
-        `}
+        className={`es-fullpage-hero__content ${
+          slice.variation === "imageRight"
+            ? "es-fullpage-hero__image--right"
+            : "es-fullpage-hero__image--left"
+        } `}
       >
         <div>
           {isFilled.image(slice.primary.image) && (
