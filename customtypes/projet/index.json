@@ -12,14 +12,6 @@
           "label": "UID"
         }
       },
-      "cover": {
-        "type": "Image",
-        "config": {
-          "label": "Couverture",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
       "title": {
         "type": "Text",
         "config": {
@@ -27,30 +19,69 @@
           "placeholder": ""
         }
       },
+      "categories": {
+        "type": "Group",
+        "config": {
+          "label": "Catégories",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "short_description": {
+        "type": "Text",
+        "config": {
+          "label": "Description courte",
+          "placeholder": "La description qui se voit sur la page d'accueil"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,rtl"
+        }
+      },
+      "informations": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Informations",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,rtl"
+        }
+      },
+      "illustrations": {
+        "type": "Group",
+        "config": {
+          "label": "Illustrations",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "texte": {
-              "type": "SharedSlice"
-            },
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "carousel_gallery": {
-              "type": "SharedSlice"
-            },
-            "featured_content_gallery": {
-              "type": "SharedSlice"
-            },
-            "card_with_category": {
-              "type": "SharedSlice"
-            },
-            "alternate_grid": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

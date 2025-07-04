@@ -61,7 +61,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           }
 
           .es-fullpage-hero {
-              font-family: system-ui, sans-serif;
+              font-family: Roboto, sans-serif;
               background-color: #fff;
               color: #333;
           }

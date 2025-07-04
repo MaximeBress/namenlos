@@ -1,20 +1,75 @@
 import { PrismicPreview } from "@prismicio/next";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import "yet-another-react-lightbox/styles.css";
 
 import "./globals.css";
-
-import { repositoryName } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
 import { Navbar } from "@/components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const apta = localFont({
+  src: [
+    {
+      path: "../../public/fonts/apta/apta-extrabold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apta/apta-extrabolditalic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/apta/apta-bold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apta/apta-bolditalic.ttf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/Apta/apta-regular.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apta/apta-italic.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/apta/apta-medium.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apta/apta-mediumitalic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/apta/apta-light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apta/apta-lightitalic.ttf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/Apta/apta-thin.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Apta/apta-thinitalic.ttf",
+      weight: "200",
+      style: "italic",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -27,13 +82,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const client = createClient();
+  const layout = await client.getSingle("layout");
+
   return (
     <html lang="fr">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        {children}
+      <body className={apta.className}>
+        <Navbar navItems={layout.data} />
+        <main className="flex min-h-screen w-full flex-col items-center justify-center pt-16">
+          {children}
+        </main>
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

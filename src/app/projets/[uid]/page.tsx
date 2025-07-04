@@ -1,18 +1,27 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
+import { Carousel } from "@/components/Carousel";
+import { TextProject } from "@/components/TextProject";
 
 type Params = { uid: string };
 
 export default async function Page({ params }: { params: Promise<Params> }) {
   const { uid } = await params;
   const client = createClient();
-  const page = await client.getByUID("projet", uid).catch(() => notFound());
+  const project = await client.getByUID("projet", uid).catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <div className="w-max-[1200px] flex h-[calc(100vh-4rem)] flex-col gap-5 py-10 md:flex-row-reverse lg:container lg:mx-auto lg:gap-10">
+      <div className="flex flex-col gap-5 px-6 md:w-1/2 md:overflow-hidden lg:w-2/5">
+        <TextProject project={project.data} />
+      </div>
+      <div className="flex flex-1 md:overflow-hidden">
+        <Carousel illustrations={project.data.illustrations} />
+      </div>
+    </div>
+  );
 }
 
 export async function generateMetadata({

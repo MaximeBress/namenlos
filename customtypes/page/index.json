@@ -12,14 +12,6 @@
           "label": "UID"
         }
       },
-      "cover": {
-        "type": "Image",
-        "config": {
-          "label": "Couverture",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
       "title": {
         "type": "Text",
         "config": {

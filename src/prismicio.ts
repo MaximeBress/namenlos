@@ -29,11 +29,6 @@ const routes: Route[] = [
     uid: "agency",
     path: "/agence",
   },
-  {
-    type: "page",
-    uid: "projects",
-    path: "/projets",
-  },
   { type: "projet", path: "/projets/:uid" },
 ];
 
