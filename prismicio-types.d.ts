@@ -28,7 +28,8 @@ type PickContentRelationshipFieldData<
       TSubRelationship["customtypes"],
       TLang
     >;
-  } & { // Group
+  } & // Group
+  {
     [TGroup in Extract<
       TRelationship["fields"][number],
       | prismic.CustomTypeModelFetchGroupLevel1
@@ -40,7 +41,8 @@ type PickContentRelationshipFieldData<
           PickContentRelationshipFieldData<TGroup, TGroupData, TLang>
         >
       : never;
-  } & { // Other fields
+  } & // Other fields
+  {
     [TFieldKey in Extract<
       TRelationship["fields"][number],
       string
@@ -67,7 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-export type LayoutDocumentDataSlicesSlice = NavigationMenuSlice;
+type LayoutDocumentDataSlicesSlice = NavigationMenuSlice;
 
 /**
  * Content for Layout documents
@@ -115,17 +117,6 @@ type PageDocumentDataSlicesSlice =
  * Content for Page documents
  */
 interface PageDocumentData {
-  /**
-   * Couverture field in *Page*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.cover
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  cover: prismic.ImageField<never>;
-
   /**
    * Titre field in *Page*
    *
@@ -181,29 +172,27 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjetDocumentDataSlicesSlice =
-  | TexteSlice
-  | CallToActionSlice
-  | CarouselGallerySlice
-  | FeaturedContentGallerySlice
-  | CardWithCategorySlice
-  | AlternateGridSlice;
+/**
+ * Item in *Projet → Illustrations*
+ */
+export interface ProjetDocumentDataIllustrationsItem {
+  /**
+   * Image field in *Projet → Illustrations*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projet.illustrations[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+type ProjetDocumentDataSlicesSlice = never;
 
 /**
  * Content for Projet documents
  */
 interface ProjetDocumentData {
-  /**
-   * Couverture field in *Projet*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projet.cover
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  cover: prismic.ImageField<never>;
-
   /**
    * Titre field in *Projet*
    *
@@ -214,6 +203,52 @@ interface ProjetDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Category field in *Projet*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projet.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Description field in *Projet*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projet.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Informations field in *Projet*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projet.informations
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  informations: prismic.RichTextField;
+
+  /**
+   * Illustrations field in *Projet*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projet.illustrations[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  illustrations: prismic.GroupField<
+    Simplify<ProjetDocumentDataIllustrationsItem>
+  >;
 
   /**
    * Slice Zone field in *Projet*
@@ -478,75 +513,9 @@ export type CallToActionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *CallToAction → AlignLeft → Primary*
- */
-export interface CallToActionSliceAlignLeftPrimary {
-  /**
-   * Image field in *CallToAction → AlignLeft → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.alignLeft.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * title field in *CallToAction → AlignLeft → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.alignLeft.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * paragraph field in *CallToAction → AlignLeft → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.alignLeft.primary.paragraph
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  paragraph: prismic.RichTextField;
-
-  /**
-   * buttonLink field in *CallToAction → AlignLeft → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Redirect URL for CTA button
-   * - **API ID Path**: call_to_action.alignLeft.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  buttonLink: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * AlignLeft variation for CallToAction Slice
- *
- * - **API ID**: `alignLeft`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CallToActionSliceAlignLeft = prismic.SharedSliceVariation<
-  "alignLeft",
-  Simplify<CallToActionSliceAlignLeftPrimary>,
-  never
->;
-
-/**
  * Slice variation for *CallToAction*
  */
-type CallToActionSliceVariation =
-  | CallToActionSliceDefault
-  | CallToActionSliceAlignLeft;
+type CallToActionSliceVariation = CallToActionSliceDefault;
 
 /**
  * CallToAction Shared Slice
@@ -1104,6 +1073,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       ProjetDocument,
       ProjetDocumentData,
+      ProjetDocumentDataIllustrationsItem,
       ProjetDocumentDataSlicesSlice,
       AllDocumentTypes,
       AlternateGridSlice,
@@ -1115,10 +1085,8 @@ declare module "@prismicio/client" {
       AlternateGridSliceImageRight,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
-      CallToActionSliceAlignLeftPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
-      CallToActionSliceAlignLeft,
       CardWithCategorySlice,
       CardWithCategorySliceDefaultPrimaryCategoryItem,
       CardWithCategorySliceDefaultPrimary,
