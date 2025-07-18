@@ -6,6 +6,7 @@ import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
 import { createClient, repositoryName } from "@/prismicio";
 import { Navbar } from "@/components/Navbar";
+import { ToastContainer } from "react-toastify";
 
 const apta = localFont({
   src: [
@@ -30,7 +31,7 @@ const apta = localFont({
       style: "italic",
     },
     {
-      path: "../../public/fonts/Apta/apta-regular.ttf",
+      path: "../../public/fonts/apta/apta-regular.ttf",
       weight: "500",
       style: "normal",
     },
@@ -60,12 +61,12 @@ const apta = localFont({
       style: "italic",
     },
     {
-      path: "../../public/fonts/Apta/apta-thin.ttf",
+      path: "../../public/fonts/apta/apta-thin.ttf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Apta/apta-thinitalic.ttf",
+      path: "../../public/fonts/apta/apta-thinitalic.ttf",
       weight: "200",
       style: "italic",
     },
@@ -92,6 +93,7 @@ export default async function RootLayout({
         <main className="flex min-h-screen w-full flex-col items-center justify-center pt-16">
           {children}
         </main>
+        <ToastContainer />
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
