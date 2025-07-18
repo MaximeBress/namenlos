@@ -11,13 +11,14 @@ export default async function Home() {
 
   return (
     <div className="w-max-[1200px] container mx-auto flex flex-col gap-10 py-10">
-      <div className="grid grid-cols-1 gap-6 px-5 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-10 px-5 lg:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          <div
+          <Link
             key={project.id}
-            className="bg-primary-50 flex flex-col rounded-lg shadow-sm"
+            href={project.url ?? ""}
+            className="flex flex-col bg-white"
           >
-            <div className="flex h-80 items-center justify-center overflow-hidden rounded-t-md">
+            <div className="flex h-150 items-center justify-center overflow-hidden px-5 py-10">
               <PrismicNextImage
                 field={project.data.illustrations[0]?.image}
                 alt=""
@@ -26,7 +27,7 @@ export default async function Home() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="flex flex-1 flex-col justify-between gap-6 p-6">
+            <div className="bg-primary-50 flex flex-1 flex-col justify-between gap-6 p-6">
               <div>
                 <h4 className="mb-1 text-xl font-semibold text-slate-800">
                   {project.data.title}
@@ -39,20 +40,20 @@ export default async function Home() {
                     </span>
                   ))}
                 </p>
-                <p className="mt-4 text-base font-light text-slate-600">
-                  {project.data.short_description}
-                </p>
+                {/*<p className="mt-4 text-base font-light text-slate-600">*/}
+                {/*  {project.data.short_description}*/}
+                {/*</p>*/}
               </div>
-              <div className="flex justify-center">
-                <Link
-                  href={project.url ?? ""}
-                  className="min-w-32 rounded-md border border-transparent bg-slate-800 px-4 py-2 text-center text-sm text-white shadow-md transition-all hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-none"
-                >
-                  Voir le projet
-                </Link>
-              </div>
+              {/*<div className="flex justify-center">*/}
+              {/*  <Link*/}
+              {/*    href={project.url ?? ""}*/}
+              {/*    className="min-w-32 rounded-md border border-transparent bg-slate-800 px-4 py-2 text-center text-sm text-white shadow-md transition-all hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-none"*/}
+              {/*  >*/}
+              {/*    Voir le projet*/}
+              {/*  </Link>*/}
+              {/*</div>*/}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

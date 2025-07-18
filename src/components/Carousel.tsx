@@ -30,14 +30,14 @@ export const Carousel = ({
       {illustrations.map((illustration, index) => (
         <div
           key={illustration.image.id}
-          className="grid w-full cursor-pointer place-items-center overflow-visible rounded-lg px-6"
+          className="grid w-full cursor-pointer place-items-center overflow-visible px-6"
         >
           <PrismicNextImage
             field={illustration.image}
             alt=""
             width={500}
             height={500}
-            className="shadow-blue-gray-900 w-full rounded-lg object-cover object-center shadow-xl"
+            className="shadow-blue-gray-900 w-full object-cover object-center"
             onClick={() => setOpenLightboxIndex(index)}
           />
         </div>
