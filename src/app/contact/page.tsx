@@ -56,13 +56,13 @@ export default function Contact() {
 
   return (
     <form
-      className="bg-primary-50 container mx-auto flex flex-col gap-5 rounded-lg p-6 md:w-1/2"
+      className="bg-primary-50 container mx-auto flex w-4/5 flex-col gap-5 rounded-lg p-10 xl:w-1/2 2xl:w-1/3"
       onSubmit={handleSubmit(onSubmit)}
     >
       <h1 className="text-3xl">Contactez nous !</h1>
 
       <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-4 lg:flex-row">
+        <div className="flex flex-col gap-4 xl:flex-row">
           <input
             type="text"
             className="flex-1 rounded-sm bg-white px-4 py-3"

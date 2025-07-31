@@ -1,12 +1,13 @@
 import { PrismicPreview } from "@prismicio/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ToastContainer } from "react-toastify";
 import "yet-another-react-lightbox/styles.css";
 
 import "./globals.css";
-import { createClient, repositoryName } from "@/prismicio";
 import { Navbar } from "@/components/Navbar";
-import { ToastContainer } from "react-toastify";
+import { Footer } from "@/components/Footer";
+import { createClient, repositoryName } from "@/prismicio";
 
 const apta = localFont({
   src: [
@@ -90,9 +91,10 @@ export default async function RootLayout({
     <html lang="fr">
       <body className={apta.className}>
         <Navbar navItems={layout.data} />
-        <main className="flex min-h-screen w-full flex-col items-center justify-center pt-16">
+        <main className="flex min-h-[calc(100vh-88px)] w-full flex-col items-center justify-center pt-16">
           {children}
         </main>
+        <Footer />
         <ToastContainer />
       </body>
       <PrismicPreview repositoryName={repositoryName} />

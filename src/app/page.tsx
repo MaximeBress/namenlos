@@ -40,18 +40,7 @@ export default async function Home() {
                     </span>
                   ))}
                 </p>
-                {/*<p className="mt-4 text-base font-light text-slate-600">*/}
-                {/*  {project.data.short_description}*/}
-                {/*</p>*/}
               </div>
-              {/*<div className="flex justify-center">*/}
-              {/*  <Link*/}
-              {/*    href={project.url ?? ""}*/}
-              {/*    className="min-w-32 rounded-md border border-transparent bg-slate-800 px-4 py-2 text-center text-sm text-white shadow-md transition-all hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-none"*/}
-              {/*  >*/}
-              {/*    Voir le projet*/}
-              {/*  </Link>*/}
-              {/*</div>*/}
             </div>
           </Link>
         ))}

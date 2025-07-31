@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const project = await client.getByUID("projet", uid).catch(() => notFound());
 
   return (
-    <div className="w-max-[1200px] flex h-[calc(100vh-4rem)] flex-col gap-5 py-10 md:flex-row-reverse lg:container lg:mx-auto lg:gap-10">
+    <div className="w-max-[1200px] flex h-[calc(100vh-152px)] flex-col gap-5 py-10 md:flex-row-reverse lg:container lg:mx-auto lg:gap-10">
       <div className="flex flex-col gap-5 px-6 md:w-1/2 md:overflow-hidden lg:w-2/5">
         <TextProject project={project.data} />
       </div>
