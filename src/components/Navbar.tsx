@@ -42,13 +42,13 @@ export const Navbar = ({
 
   return (
     <nav
-      className={`bg-primary-50 fixed z-50 w-full shadow-md transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      className={`bg-primary-50 fixed z-50 w-full transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 justify-between">
           <div className="flex items-center">
             <Link href="/" className="cursor-pointer">
-              <h1 className="text-3xl font-semibold">Namenlos</h1>
+              <h1 className="text-3xl font-[400]">Namenlos</h1>
             </Link>
           </div>
 
@@ -85,7 +85,7 @@ export const Navbar = ({
             </Link>
             <Link
               href="https://www.instagram.com/namenlos_architecture/"
-              className="font-medium text-[#d53581] uppercase hover:text-[#e74491]"
+              className="hover:text-primary-500 font-medium text-gray-600 uppercase"
               target="_blank"
             >
               <BiLogoInstagram className="text-3xl" />
@@ -95,7 +95,7 @@ export const Navbar = ({
           <div className="flex items-center gap-4 md:hidden">
             <Link
               href="https://www.instagram.com/namenlos_architecture/"
-              className="font-medium text-[#d53581] uppercase hover:text-[#e74491]"
+              className="hover:text-primary-500 font-medium text-gray-600 uppercase"
               target="_blank"
             >
               <BiLogoInstagram className="text-3xl" />

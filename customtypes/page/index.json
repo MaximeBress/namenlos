@@ -19,33 +19,23 @@
           "placeholder": ""
         }
       },
+      "cover_image": {
+        "type": "Image",
+        "config": {
+          "label": "Image de couverture",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "hero": {
-              "type": "SharedSlice"
-            },
             "alternate_grid": {
               "type": "SharedSlice"
             },
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "carousel_gallery": {
-              "type": "SharedSlice"
-            },
             "texte": {
-              "type": "SharedSlice"
-            },
-            "featured_content_gallery": {
-              "type": "SharedSlice"
-            },
-            "navigation_menu": {
-              "type": "SharedSlice"
-            },
-            "card_with_category": {
               "type": "SharedSlice"
             }
           }

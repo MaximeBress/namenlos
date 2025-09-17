@@ -12,6 +12,13 @@
           "label": "UID"
         }
       },
+      "position": {
+        "type": "Number",
+        "config": {
+          "label": "Position",
+          "placeholder": ""
+        }
+      },
       "title": {
         "type": "Text",
         "config": {
@@ -35,17 +42,19 @@
           }
         }
       },
-      "short_description": {
-        "type": "Text",
-        "config": {
-          "label": "Description courte",
-          "placeholder": "La description qui se voit sur la page d'accueil"
-        }
-      },
       "description": {
         "type": "StructuredText",
         "config": {
           "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,rtl"
+        }
+      },
+      "short_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description courte",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,rtl"

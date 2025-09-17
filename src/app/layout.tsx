@@ -91,7 +91,7 @@ export default async function RootLayout({
     <html lang="fr">
       <body className={apta.className}>
         <Navbar navItems={layout.data} />
-        <main className="flex min-h-[calc(100vh-88px)] w-full flex-col items-center justify-center pt-16">
+        <main className="mx-auto flex min-h-[calc(100vh-88px)] w-full max-w-7xl flex-col items-center justify-center px-4 pt-16 sm:px-6">
           {children}
         </main>
         <Footer />
