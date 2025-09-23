@@ -1,6 +1,5 @@
 "use client";
 
-import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -9,11 +8,13 @@ import { BiLogoInstagram, BiMenu, BiX } from "react-icons/bi";
 import { LayoutDocumentData } from "../../prismicio-types";
 import { Simplify } from "type-fest";
 
-export const Navbar = ({
-  navItems,
-}: {
-  navItems: Simplify<LayoutDocumentData>;
-}) => {
+export const Navbar = (
+  {
+    // navItems,
+  }: {
+    navItems: Simplify<LayoutDocumentData>;
+  },
+) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpenVisible] = useState(false);
 
@@ -59,24 +60,24 @@ export const Navbar = ({
             >
               Projets
             </Link>
-            {navItems.slices.map((item) => (
-              <PrismicNextLink
-                key={item.id}
-                field={item.primary.link}
-                className={`text-md hover:text-primary-600 cursor-pointer rounded-md px-3 py-2 font-medium transition-colors duration-200 ${
-                  pathname ===
-                  (
-                    item.primary.link as {
-                      url: string;
-                    }
-                  ).url
-                    ? "text-primary-500"
-                    : "text-gray-600"
-                }`}
-              >
-                {item.primary.label}
-              </PrismicNextLink>
-            ))}
+            {/*{navItems.slices.map((item) => (*/}
+            {/*  <PrismicNextLink*/}
+            {/*    key={item.id}*/}
+            {/*    field={item.primary.link}*/}
+            {/*    className={`text-md hover:text-primary-600 cursor-pointer rounded-md px-3 py-2 font-medium transition-colors duration-200 ${*/}
+            {/*      pathname ===*/}
+            {/*      (*/}
+            {/*        item.primary.link as {*/}
+            {/*          url: string;*/}
+            {/*        }*/}
+            {/*      ).url*/}
+            {/*        ? "text-primary-500"*/}
+            {/*        : "text-gray-600"*/}
+            {/*    }`}*/}
+            {/*  >*/}
+            {/*    {item.primary.label}*/}
+            {/*  </PrismicNextLink>*/}
+            {/*))}*/}
             <Link
               href="/contact"
               className={`text-md hover:text-primary-600 cursor-pointer rounded-md px-3 py-2 font-medium transition-colors duration-200 ${pathname === "/contact" ? "text-primary-500" : "text-gray-600"}`}
@@ -128,25 +129,25 @@ export const Navbar = ({
             >
               Projets
             </Link>
-            {navItems.slices.map((item) => (
-              <PrismicNextLink
-                key={item.id}
-                field={item.primary.link}
-                className={`block rounded-md px-3 py-2 text-base font-medium ${
-                  pathname ===
-                  (
-                    item.primary.link as {
-                      url: string;
-                    }
-                  ).url
-                    ? "text-primary-600 bg-primary-50"
-                    : "hover:text-primary-500 text-gray-600"
-                }`}
-                onClick={() => setIsMobileMenuOpenVisible(false)}
-              >
-                {item.primary.label}
-              </PrismicNextLink>
-            ))}
+            {/*{navItems.slices.map((item) => (*/}
+            {/*  <PrismicNextLink*/}
+            {/*    key={item.id}*/}
+            {/*    field={item.primary.link}*/}
+            {/*    className={`block rounded-md px-3 py-2 text-base font-medium ${*/}
+            {/*      pathname ===*/}
+            {/*      (*/}
+            {/*        item.primary.link as {*/}
+            {/*          url: string;*/}
+            {/*        }*/}
+            {/*      ).url*/}
+            {/*        ? "text-primary-600 bg-primary-50"*/}
+            {/*        : "hover:text-primary-500 text-gray-600"*/}
+            {/*    }`}*/}
+            {/*    onClick={() => setIsMobileMenuOpenVisible(false)}*/}
+            {/*  >*/}
+            {/*    {item.primary.label}*/}
+            {/*  </PrismicNextLink>*/}
+            {/*))}*/}
             <Link
               href="/contact"
               className={`block rounded-md px-3 py-2 text-base font-medium ${pathname === "/contact" ? "text-primary-600 bg-primary-50" : "hover:text-primary-500 text-gray-600"}`}
