@@ -24,7 +24,7 @@ export default async function Home() {
               href={project.url ?? ""}
               className="flex flex-col bg-white"
             >
-              <div className="flex h-160 items-center justify-center overflow-hidden px-5 py-10">
+              <div className="flex h-[450px] items-center justify-center overflow-hidden px-5 py-10">
                 <PrismicNextImage
                   field={project.data.illustrations[0]?.image}
                   alt=""
