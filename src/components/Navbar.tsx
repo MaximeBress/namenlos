@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiLogoInstagram, BiMenu, BiX } from "react-icons/bi";
 
 import { LayoutDocumentData } from "../../prismicio-types";
@@ -15,35 +15,13 @@ export const Navbar = (
     navItems: Simplify<LayoutDocumentData>;
   },
 ) => {
-  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpenVisible] = useState(false);
 
   const pathname = usePathname();
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const controlNavbar = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      lastScrollY = currentScrollY;
-    };
-    window.addEventListener("scroll", controlNavbar);
-
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, []);
-
   return (
     <nav
-      className={`bg-primary-50 fixed z-50 w-full transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      className={`bg-primary-50 fixed z-50 w-full transition-transform duration-300`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 justify-between">

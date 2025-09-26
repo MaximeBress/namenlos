@@ -26,16 +26,18 @@ export const Carousel = ({
   });
 
   return (
-    <div className="flex flex-1 flex-col gap-5 md:overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100">
+    <div className="flex flex-1 flex-col gap-5 pr-4 md:overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100">
       {illustrations.map((illustration, index) => (
         <div
           key={illustration.image.id}
-          className="grid w-full cursor-pointer place-items-center overflow-visible px-6 lg:pr-2 lg:pl-0"
+          className="flex h-160 w-full items-center justify-center"
         >
           <PrismicNextImage
             field={illustration.image}
             alt=""
-            className="shadow-blue-gray-900 w-full object-cover object-center"
+            width={500}
+            height={500}
+            className="h-full w-full cursor-pointer object-contain"
             onClick={() => setOpenLightboxIndex(index)}
             imgixParams={{ fit: "max", w: 1080 }}
           />
