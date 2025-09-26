@@ -1,4 +1,5 @@
 import { PrismicPreview } from "@prismicio/next";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ToastContainer } from "react-toastify";
@@ -96,6 +97,7 @@ export default async function RootLayout({
         </main>
         <Footer />
         <ToastContainer />
+        <Analytics />
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

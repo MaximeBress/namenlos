@@ -30,7 +30,7 @@ export const Carousel = ({
       {illustrations.map((illustration, index) => (
         <div
           key={illustration.image.id}
-          className="flex h-160 w-full items-center justify-center"
+          className="flex h-[500px] w-full items-center justify-center"
         >
           <PrismicNextImage
             field={illustration.image}
