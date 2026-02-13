@@ -27,7 +27,9 @@ export const TextProject = ({
         </h2>
       </div>
       {!isVisible && (
-        <div className={"flex flex-col items-center gap-3 pb-5 md:hidden"}>
+        <div
+          className={"flex flex-col items-center gap-3 pb-5 md:hidden text-sm"}
+        >
           {isFilled.richText(project.short_description) && (
             <PrismicRichText field={project.short_description} />
           )}
