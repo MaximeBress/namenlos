@@ -56,11 +56,9 @@ export default function Contact() {
 
   return (
     <form
-      className="bg-primary-50 container mx-auto mt-10 flex w-4/5 flex-col gap-5 rounded-lg p-10 xl:w-1/2 2xl:w-1/3"
+      className="bg-primary-50 container mx-auto mt-10 flex w-4/5 flex-col gap-5 rounded-lg p-10 xl:w-1/2"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-3xl">Contactez nous !</h1>
-
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-4 xl:flex-row">
           <input
